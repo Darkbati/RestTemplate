@@ -24,7 +24,7 @@ public class DatabaseConfig {
 	// ConfigurationProperties의 Prefix 선언을 통해서 여러개의 DataSource를 관리 가능하다.
 	@Bean(name = "dataSource")
 	@ConfigurationProperties(prefix = "spring.datasource")
-	public DataSource accountDataSource(DataSourceProperties properties) {
+	public DataSource dataSource(DataSourceProperties properties) {
 		return DataSourceBuilder.create().type(BasicDataSource.class).build();
 	}
 
@@ -37,7 +37,7 @@ public class DatabaseConfig {
 	}
 
 	@Bean(name = "sqlSession")
-	public SqlSessionTemplate accountSqlSession(@Qualifier("sqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
+	public SqlSessionTemplate sqlSession(@Qualifier("sqlSessionFactory") SqlSessionFactory sqlSessionFactory) {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
