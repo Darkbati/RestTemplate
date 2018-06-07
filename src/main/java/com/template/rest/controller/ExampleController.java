@@ -1,17 +1,22 @@
 package com.template.rest.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.template.rest.exception.InternalServerException;
 import com.template.rest.model.RequestModel;
 import com.template.rest.protocol.ResponseProtocol;
 import com.template.rest.service.ExampleService;
 
+@RestController
 public class ExampleController {
 
 	@Autowired
@@ -28,7 +33,8 @@ public class ExampleController {
 			throw new InternalServerException("Sytem Exception", e.getMessage(), e.getCause(), 500);
 		}
 
-		//throw new InternalServerException("Exception is test code", 500);
-		return new ResponseProtocol();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("name", "Korean");
+		return new ResponseProtocol(map, HashMap.class.getName());
 	}
 }
