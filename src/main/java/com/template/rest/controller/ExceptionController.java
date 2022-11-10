@@ -16,6 +16,7 @@ import com.template.rest.protocol.ResponseProtocol;
 @RestController
 public class ExceptionController {
 
+	/*
 	@Autowired
 	protected ErrorMessage errorMessage = new ErrorMessage();
 
@@ -25,5 +26,6 @@ public class ExceptionController {
 	public ResponseProtocol InternalServerException(InternalServerException e) {
 		return new ResponseProtocol(e.getErrorCode(), errorMessage.getMessage(e.getErrorCode()));
 	}
+	 */
 
 }

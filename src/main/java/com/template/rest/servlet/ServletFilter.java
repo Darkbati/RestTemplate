@@ -25,12 +25,20 @@ public class ServletFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+		chain.doFilter(request, response);
+	}
+
+	/*
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		if (request instanceof HttpServletRequest && response instanceof HttpServletResponse) {
 			HttpServletRequestWritableWrapper requestWrapper = new HttpServletRequestWritableWrapper((HttpServletRequest) request);
 			HttpServletResponseReadableWrapper responseWrapper = new HttpServletResponseReadableWrapper((HttpServletResponse) response);
 			chain.doFilter(requestWrapper, responseWrapper);
 		}
 	}
+
+	 */
 
 	@Override
 	public void destroy() {

@@ -18,7 +18,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import com.template.rest.exception.ErrorMessage;
 
 @Configuration
-@ComponentScan(basePackageClasses = { ErrorMessage.class })
+//@ComponentScan(basePackageClasses = { ErrorMessage.class })
 public class DatabaseConfig {
 
 	// ConfigurationProperties의 Prefix 선언을 통해서 여러개의 DataSource를 관리 가능하다.
