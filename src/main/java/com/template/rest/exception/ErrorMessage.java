@@ -8,15 +8,15 @@ import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 //@Component
+@Slf4j
 public class ErrorMessage {
-	protected static Logger logger = LogManager.getLogger(ErrorMessage.class);
-
 	protected HashMap<Integer, String> messageMap = new HashMap<Integer, String>();
 
 	public ErrorMessage() {
@@ -39,7 +39,7 @@ public class ErrorMessage {
 				}
 			}
 		} catch (IOException e) {
-			logger.error(e);
+			log.error("", e);
 		}
 	}
 
